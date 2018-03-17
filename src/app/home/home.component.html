@@ -3,20 +3,18 @@
     <p>Adiciona um item à lista</p>
   </div>
   <div class="col">
-    <p>Sua lista</p>
+    <p>Sua lista ({{ itemCount }})</p>
   </div>
 </div>
 <div class="container color-light">
   <div class="col">
     <p class="sm">Use este formulário para adicionar um novo item à lista</p>
     <form>
-      <input type="text" class="txt" name="item" placeholder="Lista de desejos">
-      <input type="submit" class="btn" value="Adicione um item">
+      <input type="text" class="txt" name="item" placeholder="Lista de desejos"[(ngModel)]="goalText">
+      <input type="submit" class="btn" [value]="btnText" (click)="addItem()">
     </form>
   </div>
   <div class="col">
-    <p class="life-container">
-      Gostaria de escalar o Evereste.
-    </p>
+    <p class="life-container" *ngFor="let goal of goals">{{ goal }}</p>
   </div>
 </div>
